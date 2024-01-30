@@ -1,0 +1,135 @@
+.header {
+  background-color: var(--secondary-bg-clr);
+}
+
+.container {
+  max-width: 1540px;
+  padding: 0px 20px;
+  margin: 0 auto;
+}
+
+.navigation {
+  width: fit-content;
+  padding: 8px 0px;
+  margin-left: auto;
+}
+
+.navigationList {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navigationLink {
+  position: relative;
+
+  font-size: 13px;
+  color: var(--main-light-text-clr);
+
+  transition: all var(--transition-duration);
+}
+
+.navigationLink:hover {
+  color: var(--primary-clr);
+}
+
+.dot {
+  width: 4px;
+  height: 4px;
+
+  border-radius: var(--border-radius);
+  background-color: var(--main-light-text-clr);
+}
+
+.langChanger {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 13px;
+  color: var(--main-light-text-clr);
+}
+
+/* MAIN */
+
+.main {
+  border-top: 1px solid var(--stroke-clr);
+  border-bottom: 1px solid var(--stroke-clr);
+}
+
+.flexContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  fill: var(--main-bg-clr);
+}
+
+.productsNavigation {
+  display: flex;
+}
+
+.productsLink {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  padding: 25px 35px;
+
+  border-right: 1px solid var(--stroke-clr);
+
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--main-light-text-clr);
+
+  transition: all var(--transition-duration);
+}
+
+.productsNavigation > li:nth-child(1) .productsLink {
+  border-left: 1px solid var(--stroke-clr);
+}
+
+.productsLink:hover {
+  color: var(--primary-clr);
+}
+
+.productsIcon {
+  fill: var(--main-light-text-clr);
+
+  transition: all var(--transition-duration);
+}
+
+.productsNavigation > li:nth-child(4) .productsLink .productsIcon {
+  fill: none;
+  stroke: var(--main-light-text-clr);
+}
+
+.productsLink:hover .productsIcon {
+  fill: var(--primary-clr);
+}
+
+.productsNavigation > li:nth-child(4) .productsLink:hover .productsIcon {
+  stroke: var(--primary-clr);
+}
+
+.basketBtn {
+  width: 40px;
+  height: 40px;
+
+  border: 0;
+  background-color: transparent;
+
+  transition: all var(--transition-duration);
+
+  cursor: pointer;
+}
+
+.basketIcon {
+  stroke: var(--main-bg-clr);
+}
+
+.basketBtn:hover .basketIcon {
+  stroke: var(--primary-clr);
+}
