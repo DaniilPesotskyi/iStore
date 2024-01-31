@@ -4,9 +4,11 @@ import css from "./MobileMenu.module.css";
 
 import { useState } from "react";
 
-interface IProps {}
+interface IProps {
+  lang: string;
+}
 
-const MobileMenu: React.FC<IProps> = () => {
+const MobileMenu: React.FC<IProps> = ({ lang }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const onBackdropClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -32,7 +34,9 @@ const MobileMenu: React.FC<IProps> = () => {
         <div className={css.backdrop} onClick={onBackdropClick}>
           <div className={css.modal}>
             <div className={css.header}>
-              <h1 className={css.title}>MENU</h1>
+              <h1 className={css.title}>
+                {lang === "uk-ua" ? "МЕНЮ" : "MENU"}
+              </h1>
               <button
                 type="button"
                 className={css.closeBtn}

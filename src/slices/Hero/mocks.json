@@ -1,0 +1,50 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Glass"
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"image",
+						{
+							"__TYPE__": "ImageContent",
+							"origin": {
+								"id": "main",
+								"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
+								"width": 3212,
+								"height": 3880
+							},
+							"url": "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?rect=0%2C1346%2C3212%2C1188&w=1920&h=710",
+							"width": 1920,
+							"height": 710,
+							"edit": {
+								"zoom": 1,
+								"crop": {
+									"x": 0,
+									"y": 1346
+								},
+								"background": "transparent"
+							},
+							"thumbnails": {}
+						}
+					]
+				]
+			}
+		]
+	}
+]

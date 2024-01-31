@@ -1,6 +1,6 @@
 {
-  "id": "homepage",
-  "label": "Homepage",
+  "id": "contacts",
+  "label": "Contacts",
   "format": "page",
   "repeatable": false,
   "status": true,
@@ -10,11 +10,7 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {
-            "hero": {
-              "type": "SharedSlice"
-            }
-          }
+          "choices": {}
         }
       }
     },

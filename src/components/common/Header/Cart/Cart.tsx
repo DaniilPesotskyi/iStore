@@ -4,9 +4,11 @@ import css from "./Cart.module.css";
 
 import { useState } from "react";
 
-interface IProps {}
+interface IProps {
+  lang: string;
+}
 
-const Cart: React.FC<IProps> = () => {
+const Cart: React.FC<IProps> = ({ lang }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const onBackdropClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -39,7 +41,9 @@ const Cart: React.FC<IProps> = () => {
               >
                 <CloseIcon className={css.closeIcon} />
               </button>
-              <h1 className={css.title}>CART</h1>
+              <h1 className={css.title}>
+                {lang === "uk-ua" ? "КОШИК" : "CART"}
+              </h1>
             </div>
           </div>
         </div>

@@ -8,7 +8,6 @@ import { PrismicDocument } from "@prismicio/client";
 
 import clsx from "clsx";
 import React from "react";
-import Link from "next/link";
 
 import {
   PhoneIcon,
@@ -39,7 +38,7 @@ const Header: React.FC<IProps> = ({ settings, locales, lang }) => {
       <div className={css.container}>
         <nav className={css.navigation}>
           <ul className={css.navigationList}>
-            {settings.data.navigation.map((i, index) => (
+            {settings.data.pagesnavigation.map((i, index) => (
               <React.Fragment key={index}>
                 <li>
                   <PrismicNextLink
@@ -52,6 +51,7 @@ const Header: React.FC<IProps> = ({ settings, locales, lang }) => {
                 <div className={css.dot}></div>
               </React.Fragment>
             ))}
+
             {locales.map(
               (locale) =>
                 locale.lang !== lang && (
@@ -72,41 +72,35 @@ const Header: React.FC<IProps> = ({ settings, locales, lang }) => {
       </div>
       <div className={css.main}>
         <div className={clsx(css.container, css.flexContainer)}>
-          <AppleIcon className={css.logo} />
+          <PrismicNextLink field={settings.data.homepage}>
+            <AppleIcon className={css.logo} />
+          </PrismicNextLink>
           <ul className={css.productsNavigation}>
-            <li>
-              <Link href="/" className={css.productsLink}>
-                <PhoneIcon className={css.productsIcon} />
-                IPhone
-              </Link>
-            </li>
-            <li>
-              <Link href="/" className={css.productsLink}>
-                <TabletIcon className={css.productsIcon} />
-                IPad
-              </Link>
-            </li>
-            <li>
-              <Link href="/" className={css.productsLink}>
-                <DesktopIcon className={css.productsIcon} />
-                Mac
-              </Link>
-            </li>
-            <li>
-              <Link href="/" className={css.productsLink}>
-                <WatchIcon className={css.productsIcon} />
-                Watch
-              </Link>
-            </li>
-            <li>
-              <Link href="/" className={css.productsLink}>
-                <HeadphonesIcon className={css.productsIcon} />
-                {lang === "uk-ua" ? "Навушники" : "Headphones"}
-              </Link>
-            </li>
+            {settings.data.navigation.map((i, index) => (
+              <li key={index}>
+                <PrismicNextLink field={i.link} className={css.productsLink}>
+                  {i.icon === "IPhone" && (
+                    <PhoneIcon className={css.productsIcon} />
+                  )}
+                  {i.icon === "IPad" && (
+                    <TabletIcon className={css.productsIcon} />
+                  )}
+                  {i.icon === "Mac" && (
+                    <DesktopIcon className={css.productsIcon} />
+                  )}
+                  {i.icon === "Watch" && (
+                    <WatchIcon className={css.productsIcon} />
+                  )}
+                  {i.icon === "Headphones" && (
+                    <HeadphonesIcon className={css.productsIcon} />
+                  )}
+                  {i.label}
+                </PrismicNextLink>
+              </li>
+            ))}
           </ul>
-          <MobileMenu />
-          <Cart />
+          <MobileMenu lang={lang} />
+          <Cart lang={lang} />
         </div>
       </div>
     </header>

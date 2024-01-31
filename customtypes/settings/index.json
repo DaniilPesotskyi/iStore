@@ -26,8 +26,48 @@
                 "label": "Label",
                 "placeholder": ""
               }
+            },
+            "icon": {
+              "type": "Select",
+              "config": {
+                "label": "Icon",
+                "placeholder": "",
+                "options": ["IPhone", "IPad", "Mac", "Watch", "Headphones"]
+              }
             }
           }
+        }
+      },
+      "pagesnavigation": {
+        "type": "Group",
+        "config": {
+          "label": "PagesNavigation",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "label": {
+              "type": "Text",
+              "config": {
+                "label": "Label",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      },
+      "homepage": {
+        "type": "Link",
+        "config": {
+          "label": "Homepage",
+          "placeholder": "",
+          "select": null
         }
       }
     }
