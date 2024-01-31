@@ -68,68 +68,54 @@
 }
 
 .productsNavigation {
-  display: flex;
+  display: none;
 }
 
-.productsLink {
-  display: flex;
-  gap: 10px;
-  align-items: center;
+@media screen and (min-width: 1200px) {
+  .productsNavigation {
+    display: flex;
+  }
 
-  padding: 25px 35px;
+  .productsLink {
+    display: flex;
+    gap: 10px;
+    align-items: center;
 
-  border-right: 1px solid var(--stroke-clr);
+    padding: 25px 35px;
 
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--main-light-text-clr);
+    border-right: 1px solid var(--stroke-clr);
 
-  transition: all var(--transition-duration);
-}
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--main-light-text-clr);
 
-.productsNavigation > li:nth-child(1) .productsLink {
-  border-left: 1px solid var(--stroke-clr);
-}
+    transition: all var(--transition-duration);
+  }
 
-.productsLink:hover {
-  color: var(--primary-clr);
-}
+  .productsNavigation > li:nth-child(1) .productsLink {
+    border-left: 1px solid var(--stroke-clr);
+  }
 
-.productsIcon {
-  fill: var(--main-light-text-clr);
+  .productsLink:hover {
+    color: var(--primary-clr);
+  }
 
-  transition: all var(--transition-duration);
-}
+  .productsIcon {
+    fill: var(--main-light-text-clr);
 
-.productsNavigation > li:nth-child(4) .productsLink .productsIcon {
-  fill: none;
-  stroke: var(--main-light-text-clr);
-}
+    transition: all var(--transition-duration);
+  }
 
-.productsLink:hover .productsIcon {
-  fill: var(--primary-clr);
-}
+  .productsNavigation > li:nth-child(4) .productsLink .productsIcon {
+    fill: none;
+    stroke: var(--main-light-text-clr);
+  }
 
-.productsNavigation > li:nth-child(4) .productsLink:hover .productsIcon {
-  stroke: var(--primary-clr);
-}
+  .productsLink:hover .productsIcon {
+    fill: var(--primary-clr);
+  }
 
-.basketBtn {
-  width: 40px;
-  height: 40px;
-
-  border: 0;
-  background-color: transparent;
-
-  transition: all var(--transition-duration);
-
-  cursor: pointer;
-}
-
-.basketIcon {
-  stroke: var(--main-bg-clr);
-}
-
-.basketBtn:hover .basketIcon {
-  stroke: var(--primary-clr);
+  .productsNavigation > li:nth-child(4) .productsLink:hover .productsIcon {
+    stroke: var(--primary-clr);
+  }
 }

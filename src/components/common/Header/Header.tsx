@@ -17,6 +17,8 @@ import {
   DesktopIcon,
   HeadphonesIcon,
 } from "@/components/icons/devices";
+import MobileMenu from "./MobileMenu/MobileMenu";
+import Cart from "./Cart/Cart";
 
 interface IProps {
   settings: SettingsDocument<string>;
@@ -103,9 +105,8 @@ const Header: React.FC<IProps> = ({ settings, locales, lang }) => {
               </Link>
             </li>
           </ul>
-          <button className={css.basketBtn} type="button">
-            <BasketIcon className={css.basketIcon} />
-          </button>
+          <MobileMenu />
+          <Cart />
         </div>
       </div>
     </header>
@@ -124,30 +125,6 @@ function AppleIcon({ className }: { className?: string }) {
       fill="none"
     >
       <path d="M28 34H13c-8-9-7-21 2-22l5 2 6-2c3 0 5 1 6 3-5 3-4 10 1 12l-5 7zm-8-22c0-4 3-7 6-7 1 4-4 8-6 7z"></path>
-    </svg>
-  );
-}
-
-function BasketIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      xmlns="http://www.w3.org/2000/svg"
-      width="40"
-      height="40"
-      fill="none"
-    >
-      <path strokeLinecap="round" d="M6 8h5l1 2 1 3"></path>
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M29 29H13s0 0 0 0a2 2 0 01-1-2s0 0 0 0v-1a3 3 0 013-2s0 0 0 0h9"
-      ></path>
-      <path
-        strokeLinecap="round"
-        d="M24 24h-9l-3-4v-1c-1-3-2-4-1-5l6-1h9l6 1c1 1 0 3-2 6l-1 1-2 3h-3z"
-      ></path>
-      <path d="M28 35a2 2 0 100-3 2 2 0 000 3zm-13 0a2 2 0 100-3 2 2 0 000 3z"></path>
     </svg>
   );
 }
