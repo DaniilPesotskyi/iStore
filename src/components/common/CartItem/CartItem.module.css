@@ -1,0 +1,117 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.imageWrap {
+  flex-shrink: 0;
+
+  position: relative;
+
+  width: 80px;
+  height: 80px;
+
+  border: 1px solid var(--stroke-clr);
+  border-radius: var(--border-radius);
+}
+
+.image {
+}
+
+.deleteBtn {
+  position: absolute;
+  left: -3px;
+  top: -3px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 17px;
+  height: 17px;
+
+  border: 1px solid var(--stroke-clr);
+  border-radius: 99px;
+  background-color: var(--main-bg-clr);
+
+  transition: all var(--transition-duration);
+  cursor: pointer;
+}
+
+.deleteBtn:hover {
+  border: 1px solid var(--red-clr);
+}
+
+.deleteIcon {
+  stroke: var(--main-text-clr);
+
+  transition: all var(--transition-duration);
+}
+
+.deleteBtn:hover .deleteIcon {
+  stroke: var(--red-clr);
+}
+
+.info {
+  width: 100%;
+}
+
+.title {
+  margin-bottom: 5px;
+
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--main-text-clr);
+}
+
+.qntWrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.qntCounter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 12px;
+  color: var(--main-text-clr);
+}
+
+.qntBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 15px;
+  height: 15px;
+
+  border: 0;
+  background-color: transparent;
+
+  cursor: pointer;
+}
+
+.qntIcon {
+  fill: var(--stroke-clr);
+  scale: 1;
+
+  transition: all var(--transition-duration);
+}
+
+.qntBtn:hover .qntIcon {
+  fill: var(--main-text-clr);
+  scale: 1.1;
+}
+
+.price {
+  padding: 6px 18px;
+
+  border: 1px solid var(--stroke-clr);
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-bg-clr);
+
+  font-size: 16px;
+  color: var(--main-light-text-clr);
+}

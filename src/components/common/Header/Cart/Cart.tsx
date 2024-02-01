@@ -2,7 +2,11 @@
 
 import css from "./Cart.module.css";
 
+import { useSelector } from "react-redux";
 import { useState } from "react";
+import { selectItems } from "@/redux/cart/selectors";
+
+import CartItem from "../../CartItem/CartItem";
 
 interface IProps {
   lang: string;
@@ -11,12 +15,15 @@ interface IProps {
 const Cart: React.FC<IProps> = ({ lang }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const items = useSelector(selectItems);
+
   const onBackdropClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (
       e.target instanceof HTMLDivElement &&
       e.target.classList.contains(css.backdrop)
     ) {
       setIsOpen(false);
+      document.body.classList.remove("body-scroll-lock");
       e.stopPropagation();
     }
   };
@@ -26,7 +33,10 @@ const Cart: React.FC<IProps> = ({ lang }) => {
       <button
         className={css.cartBtn}
         type="button"
-        onClick={() => setIsOpen(true)}
+        onClick={() => {
+          setIsOpen(true);
+          document.body.classList.add("body-scroll-lock");
+        }}
       >
         <CartIcon className={css.cartIcon} />
       </button>
@@ -37,7 +47,10 @@ const Cart: React.FC<IProps> = ({ lang }) => {
               <button
                 type="button"
                 className={css.closeBtn}
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  document.body.classList.remove("body-scroll-lock");
+                }}
               >
                 <CloseIcon className={css.closeIcon} />
               </button>
@@ -45,6 +58,27 @@ const Cart: React.FC<IProps> = ({ lang }) => {
                 {lang === "uk-ua" ? "КОШИК" : "CART"}
               </h1>
             </div>
+            <ul className={css.list}>
+              {items.map((i) => (
+                <li>
+                  <CartItem
+                    name={i.data.title}
+                    price={i.data.price}
+                    qnt={i.qnt}
+                    increment={() => {}}
+                    decrement={() => {}}
+                    del={() => {}}
+                  />
+                </li>
+              ))}
+            </ul>
+            <div className={css.totalWrap}>
+              {lang === "uk-ua" ? "ВСЬОГО" : "TOTAL"}
+              <span className={css.totalValue}>56000 UAH</span>
+            </div>
+            <button type="button" className={css.checkoutBtn}>
+              {lang === "uk-ua" ? "ОФОРМИТИ" : "CHECKOUT"}
+            </button>
           </div>
         </div>
       )}

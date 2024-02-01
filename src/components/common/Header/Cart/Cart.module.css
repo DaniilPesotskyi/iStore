@@ -74,11 +74,60 @@
 }
 
 .closeBtn:hover .closeIcon {
-  stroke: #b32020;
+  stroke: var(--red-clr);
 }
 
 .title {
   font-size: 36px;
   font-weight: 600;
+  color: var(--main-text-clr);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  margin-bottom: 20px;
+}
+
+.totalWrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 35px 0px;
+  margin-bottom: 50px;
+
+  border-top: 1px solid var(--stroke-clr);
+  border-bottom: 1px solid var(--stroke-clr);
+
+  font-size: 24px;
+  color: var(--secondary-text-clr);
+}
+
+.totalValue {
+  color: var(--main-text-clr);
+}
+
+.checkoutBtn {
+  display: block;
+  
+  padding: 18px 55px;
+  margin: 0 auto;
+
+  border: 1px solid var(--stroke-clr);
+  border-radius: var(--border-radius);
+  background-color: var(--secondary-bg-clr);
+
+  font-size: 20px;
+  color: var(--main-light-text-clr);
+
+  cursor: pointer;
+  transition: all var(--transition-duration);
+}
+
+.checkoutBtn:hover {
+  background-color: var(--main-bg-clr);
   color: var(--main-text-clr);
 }

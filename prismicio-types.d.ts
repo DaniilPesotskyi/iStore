@@ -195,6 +195,243 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
+/**
+ * Content for IPhone documents
+ */
+interface IphoneDocumentData {
+  /**
+   * Title field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Model field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.model
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  model: prismic.KeyTextField;
+
+  /**
+   * Price field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.price
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  price: prismic.KeyTextField;
+
+  /**
+   * Screen diagonal field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.screen_diagonal
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  screen_diagonal: prismic.KeyTextField;
+
+  /**
+   * Display resolution field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.display_resolution
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  display_resolution: prismic.KeyTextField;
+
+  /**
+   * Matrix type field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.matrix_type
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  matrix_type: prismic.KeyTextField;
+
+  /**
+   * Screen refresh rate field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.screen_refresh_rate
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  screen_refresh_rate: prismic.KeyTextField;
+
+  /**
+   * Screen material field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.screen_material
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  screen_material: prismic.KeyTextField;
+
+  /**
+   * Number of SIM cards field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.number_of_sim_cards
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  number_of_sim_cards: prismic.KeyTextField;
+
+  /**
+   * SIM card dimensions field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.sim_card_dimensions
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  sim_card_dimensions: prismic.KeyTextField;
+
+  /**
+   * Built in memory field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.built_in_memory
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  built_in_memory: prismic.KeyTextField;
+
+  /**
+   * Front camera field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.front_camera
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  front_camera: prismic.KeyTextField;
+
+  /**
+   * Type of frontal flash field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.type_of_frontal_flash
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  type_of_frontal_flash: prismic.KeyTextField;
+
+  /**
+   * Front camera video recording field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.front_camera_video_recording
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  front_camera_video_recording: prismic.KeyTextField;
+
+  /**
+   * Name of the processor field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.name_of_the_processor
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name_of_the_processor: prismic.KeyTextField;
+
+  /**
+   * Number of cores field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.number_of_cores
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  number_of_cores: prismic.KeyTextField;
+
+  /**
+   * Main camera field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.main_camera
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  main_camera: prismic.KeyTextField;
+
+  /**
+   * Record video of the main camera field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.record_video_of_the_main_camera
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  record_video_of_the_main_camera: prismic.KeyTextField;
+
+  /**
+   * Connectors field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.connectors
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  connectors: prismic.KeyTextField;
+
+  /**
+   * Weight field in *IPhone*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: iphone.weight
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  weight: prismic.KeyTextField;
+}
+
+/**
+ * IPhone document from Prismic
+ *
+ * - **API ID**: `iphone`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type IphoneDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<IphoneDocumentData>, "iphone", Lang>;
+
 type ServicesDocumentDataSlicesSlice = never;
 
 /**
@@ -380,6 +617,7 @@ export type AllDocumentTypes =
   | ContactsDocument
   | FaqsDocument
   | HomepageDocument
+  | IphoneDocument
   | ServicesDocument
   | SettingsDocument;
 
@@ -459,6 +697,8 @@ declare module "@prismicio/client" {
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      IphoneDocument,
+      IphoneDocumentData,
       ServicesDocument,
       ServicesDocumentData,
       ServicesDocumentDataSlicesSlice,

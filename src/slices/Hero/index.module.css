@@ -67,6 +67,6 @@
 
 @media screen and (min-width: 1200px) {
   .slide {
-    height: 700px;
+    height: auto;
   }
 }

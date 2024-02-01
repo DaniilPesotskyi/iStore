@@ -1,0 +1,157 @@
+{
+  "id": "iphone",
+  "label": "IPhone",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Title",
+          "placeholder": ""
+        }
+      },
+      "model": {
+        "type": "Text",
+        "config": {
+          "label": "Model",
+          "placeholder": ""
+        }
+      },
+      "price": {
+        "type": "Text",
+        "config": {
+          "label": "Price",
+          "placeholder": ""
+        }
+      },
+      "screen_diagonal": {
+        "type": "Text",
+        "config": {
+          "label": "Screen diagonal",
+          "placeholder": ""
+        }
+      },
+      "display_resolution": {
+        "type": "Text",
+        "config": {
+          "label": "Display resolution",
+          "placeholder": ""
+        }
+      },
+      "matrix_type": {
+        "type": "Text",
+        "config": {
+          "label": "Matrix type",
+          "placeholder": ""
+        }
+      },
+      "screen_refresh_rate": {
+        "type": "Text",
+        "config": {
+          "label": "Screen refresh rate",
+          "placeholder": ""
+        }
+      },
+      "screen_material": {
+        "type": "Text",
+        "config": {
+          "label": "Screen material",
+          "placeholder": ""
+        }
+      },
+      "number_of_sim_cards": {
+        "type": "Text",
+        "config": {
+          "label": "Number of SIM cards",
+          "placeholder": ""
+        }
+      },
+      "sim_card_dimensions": {
+        "type": "Text",
+        "config": {
+          "label": "SIM card dimensions",
+          "placeholder": ""
+        }
+      },
+      "built_in_memory": {
+        "type": "Text",
+        "config": {
+          "label": "Built in memory",
+          "placeholder": ""
+        }
+      },
+      "front_camera": {
+        "type": "Text",
+        "config": {
+          "label": "Front camera",
+          "placeholder": ""
+        }
+      },
+      "type_of_frontal_flash": {
+        "type": "Text",
+        "config": {
+          "label": "Type of frontal flash",
+          "placeholder": ""
+        }
+      },
+      "front_camera_video_recording": {
+        "type": "Text",
+        "config": {
+          "label": "Front camera video recording",
+          "placeholder": ""
+        }
+      },
+      "name_of_the_processor": {
+        "type": "Text",
+        "config": {
+          "label": "Name of the processor",
+          "placeholder": ""
+        }
+      },
+      "number_of_cores": {
+        "type": "Text",
+        "config": {
+          "label": "Number of cores",
+          "placeholder": ""
+        }
+      },
+      "main_camera": {
+        "type": "Text",
+        "config": {
+          "label": "Main camera",
+          "placeholder": ""
+        }
+      },
+      "record_video_of_the_main_camera": {
+        "type": "Text",
+        "config": {
+          "label": "Record video of the main camera",
+          "placeholder": ""
+        }
+      },
+      "connectors": {
+        "type": "Text",
+        "config": {
+          "label": "Connectors",
+          "placeholder": ""
+        }
+      },
+      "weight": {
+        "type": "Text",
+        "config": {
+          "label": "Weight",
+          "placeholder": ""
+        }
+      }
+    }
+  }
+}
