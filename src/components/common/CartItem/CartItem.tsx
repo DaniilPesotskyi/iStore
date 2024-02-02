@@ -28,6 +28,7 @@ const CartItem: React.FC<IProps> = ({
         <button
           type="button"
           className={css.deleteBtn}
+          onClick={() => del()}
           aria-label={`Delete ${name} from your cart`}
         >
           <DeleteIcon className={css.deleteIcon} />
@@ -53,7 +54,7 @@ const CartItem: React.FC<IProps> = ({
               <PlusIcon className={css.qntIcon} />
             </button>
           </div>
-          <div className={css.price}>{price} UAH</div>
+          <div className={css.price}>{qnt * Number(price)} UAH</div>
         </div>
       </div>
     </div>

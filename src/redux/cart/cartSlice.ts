@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ICartItem } from "@/types/cartItem";
+import { IIPhone } from "@/types/products";
 
 interface IState {
-  items: Array<ICartItem>;
+  items: Array<IIPhone>;
 }
 
 const initialState: IState = {
@@ -12,8 +12,13 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addItem: (state, action: PayloadAction<ICartItem>) => {
-      state.items.push(action.payload);
+    addItem: (state, action: PayloadAction<IIPhone>) => {
+      console.log("fsdfsd");
+      if (state.items.some((i) => i.uid !== action.payload.uid)) {
+        state.items.push(action.payload);
+      } else if (state.items.length === 0) {
+        state.items.push(action.payload);
+      }
     },
     incrementItem: (state, action: PayloadAction<string>) => {
       state.items.forEach((i) => {
@@ -25,15 +30,20 @@ const cartSlice = createSlice({
     decrementItem: (state, action: PayloadAction<string>) => {
       state.items.forEach((i) => {
         if (i.uid === action.payload) {
-          i.qnt -= 1;
+          if (i.qnt === 1) {
+            state.items = state.items.filter((i) => i.uid !== action.payload);
+          } else {
+            i.qnt -= 1;
+          }
         }
       });
     },
     deleteItem: (state, action: PayloadAction<string>) => {
-      state.items.filter((i) => i.uid !== i.uid);
+      state.items = state.items.filter((i) => i.uid !== action.payload);
     },
   },
 });
 
-export const { incrementItem, decrementItem, deleteItem } = cartSlice.actions;
+export const { incrementItem, decrementItem, deleteItem, addItem } =
+  cartSlice.actions;
 export const cartReducer = cartSlice.reducer;

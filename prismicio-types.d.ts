@@ -130,7 +130,7 @@ interface FaqsDocumentData {
 export type FaqsDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<FaqsDocumentData>, "faqs", Lang>;
 
-type HomepageDocumentDataSlicesSlice = HeroSlice;
+type HomepageDocumentDataSlicesSlice = ShowcaseSlice | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -678,6 +678,66 @@ type HeroSliceVariation = HeroSliceDefault;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Primary content in *Showcase → Primary*
+ */
+export interface ShowcaseSliceDefaultPrimary {
+  /**
+   * Heading field in *Showcase → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+}
+
+/**
+ * Primary content in *Showcase → Items*
+ */
+export interface ShowcaseSliceDefaultItem {
+  /**
+   * Product field in *Showcase → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: showcase.items[].product
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  product: prismic.ContentRelationshipField<"iphone">;
+}
+
+/**
+ * Default variation for Showcase Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ShowcaseSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ShowcaseSliceDefaultPrimary>,
+  Simplify<ShowcaseSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Showcase*
+ */
+type ShowcaseSliceVariation = ShowcaseSliceDefault;
+
+/**
+ * Showcase Shared Slice
+ *
+ * - **API ID**: `showcase`
+ * - **Description**: Showcase
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ShowcaseSlice = prismic.SharedSlice<
+  "showcase",
+  ShowcaseSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -712,6 +772,11 @@ declare module "@prismicio/client" {
       HeroSliceDefaultItem,
       HeroSliceVariation,
       HeroSliceDefault,
+      ShowcaseSlice,
+      ShowcaseSliceDefaultPrimary,
+      ShowcaseSliceDefaultItem,
+      ShowcaseSliceVariation,
+      ShowcaseSliceDefault,
     };
   }
 }

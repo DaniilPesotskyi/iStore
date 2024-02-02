@@ -2,9 +2,14 @@
 
 import css from "./Cart.module.css";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { selectItems } from "@/redux/cart/selectors";
+import {
+  decrementItem,
+  deleteItem,
+  incrementItem,
+} from "@/redux/cart/cartSlice";
 
 import CartItem from "../../CartItem/CartItem";
 
@@ -16,6 +21,7 @@ const Cart: React.FC<IProps> = ({ lang }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const items = useSelector(selectItems);
+  const dispatch = useDispatch();
 
   const onBackdropClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     if (
@@ -26,6 +32,16 @@ const Cart: React.FC<IProps> = ({ lang }) => {
       document.body.classList.remove("body-scroll-lock");
       e.stopPropagation();
     }
+  };
+
+  const getTotal = () => {
+    let total = 0;
+
+    items.forEach((i) => {
+      total += i.qnt * Number(i.data.price);
+    });
+
+    return total;
   };
 
   return (
@@ -59,22 +75,22 @@ const Cart: React.FC<IProps> = ({ lang }) => {
               </h1>
             </div>
             <ul className={css.list}>
-              {items.map((i) => (
-                <li>
+              {items.map((i, index) => (
+                <li key={index}>
                   <CartItem
                     name={i.data.title}
                     price={i.data.price}
                     qnt={i.qnt}
-                    increment={() => {}}
-                    decrement={() => {}}
-                    del={() => {}}
+                    increment={() => dispatch(incrementItem(i.uid))}
+                    decrement={() => dispatch(decrementItem(i.uid))}
+                    del={() => dispatch(deleteItem(i.uid))}
                   />
                 </li>
               ))}
             </ul>
             <div className={css.totalWrap}>
               {lang === "uk-ua" ? "ВСЬОГО" : "TOTAL"}
-              <span className={css.totalValue}>56000 UAH</span>
+              <span className={css.totalValue}>{getTotal()} UAH</span>
             </div>
             <button type="button" className={css.checkoutBtn}>
               {lang === "uk-ua" ? "ОФОРМИТИ" : "CHECKOUT"}
