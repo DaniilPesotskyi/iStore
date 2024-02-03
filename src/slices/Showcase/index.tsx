@@ -3,10 +3,16 @@
 import css from "./index.module.css";
 
 import { Content, isFilled } from "@prismicio/client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SliceComponentProps } from "@prismicio/react";
 import { IphoneDocument } from "../../../prismicio-types";
 import { createClient } from "@/prismicio";
+
+import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
+import { Pagination, Navigation } from "swiper/modules";
+import "swiper/css/navigation";
+import "swiper/css";
+import "swiper/css/pagination";
 
 import ProductCard from "@/components/common/ProductCard/ProductCard";
 import Section from "@/components/common/Section/Section";
@@ -18,6 +24,7 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
   const [items, setItems] = useState<(IphoneDocument<string> | undefined)[]>(
     []
   );
+  const swiper = useRef<SwiperRef>(null);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -43,16 +50,59 @@ const Showcase = ({ slice }: ShowcaseProps): JSX.Element => {
       data-slice-variation={slice.variation}
     >
       <Heading field={slice.primary.heading} position="left" />
-      <ul>
+      <Swiper
+        ref={swiper}
+        slidesPerView={"auto"}
+        spaceBetween={30}
+        navigation={false}
+        pagination={false}
+        modules={[Pagination, Navigation]}
+        className={css.swiper}
+      >
         {items &&
           items.map((i, index) => (
-            <li key={index}>
+            <SwiperSlide key={index} className={css.item}>
               <ProductCard item={i} />
-            </li>
+            </SwiperSlide>
           ))}
-      </ul>
+      </Swiper>
+      <div className={css.pagination}>
+        <button
+          type="button"
+          className={css.paginationBtn}
+          onClick={() => swiper.current?.swiper.slidePrev()}
+        >
+          <ArrowIcon className={css.paginationIcon} />
+        </button>
+        <button
+          type="button"
+          className={css.paginationBtn}
+          onClick={() => swiper.current?.swiper.slideNext()}
+        >
+          <ArrowIcon className={css.paginationIcon} />
+        </button>
+      </div>
     </Section>
   );
 };
 
 export default Showcase;
+
+function ArrowIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      width="25"
+      height="25"
+      fill="none"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.7"
+        d="M22 12L3 13m7-8l-7 8 7 7"
+      ></path>
+    </svg>
+  );
+}

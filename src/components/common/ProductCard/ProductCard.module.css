@@ -52,8 +52,25 @@
   width: 50px;
   height: 50px;
 
+  border: 1px solid var(--main-light-text-clr);
   border-radius: var(--border-radius);
-  background-color: var(--primary-clr);
+
+  transition: all var(--transition-duration);
+}
+
+.link:hover {
+  border: 1px solid var(--primary-clr);
+}
+
+.linkIcon {
+  stroke: var(--main-light-text-clr);
+  transform: scale(1);
+  transition: all var(--transition-duration);
+}
+
+.link:hover .linkIcon {
+  stroke: var(--primary-clr);
+  transform: scale(1.1);
 }
 
 .cartBtn {
@@ -64,17 +81,41 @@
   width: 50px;
   height: 50px;
 
+  border: 1px solid var(--main-light-text-clr);
   border-radius: var(--border-radius);
-  background-color: var(--primary-clr);
+  background-color: transparent;
+
+  transition: all var(--transition-duration);
+  cursor: pointer;
+}
+
+.cartBtn:hover {
+  border: 1px solid var(--primary-clr);
+}
+
+.cartIcon {
+  fill: var(--main-light-text-clr);
+  transform: scale(1);
+  transition: all var(--transition-duration);
+}
+
+.cartBtn:hover .cartIcon {
+  fill: var(--primary-clr);
+  transform: scale(1.1);
 }
 
 .title {
+  width: 100%;
   margin-bottom: 20px;
   padding: 0px 10px;
 
   font-size: 24px;
   font-weight: 500;
   color: var(--main-text-clr);
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .price {
