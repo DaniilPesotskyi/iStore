@@ -11,6 +11,12 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "catalog": {
+              "type": "SharedSlice"
+            },
+            "information": {
+              "type": "SharedSlice"
+            },
             "showcase": {
               "type": "SharedSlice"
             },

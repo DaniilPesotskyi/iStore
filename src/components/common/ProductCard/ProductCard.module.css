@@ -64,13 +64,11 @@
 
 .linkIcon {
   stroke: var(--main-light-text-clr);
-  transform: scale(1);
   transition: all var(--transition-duration);
 }
 
 .link:hover .linkIcon {
   stroke: var(--primary-clr);
-  transform: scale(1.1);
 }
 
 .cartBtn {
@@ -95,13 +93,11 @@
 
 .cartIcon {
   fill: var(--main-light-text-clr);
-  transform: scale(1);
   transition: all var(--transition-duration);
 }
 
 .cartBtn:hover .cartIcon {
   fill: var(--primary-clr);
-  transform: scale(1.1);
 }
 
 .title {

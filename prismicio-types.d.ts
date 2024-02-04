@@ -130,7 +130,11 @@ interface FaqsDocumentData {
 export type FaqsDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<FaqsDocumentData>, "faqs", Lang>;
 
-type HomepageDocumentDataSlicesSlice = ShowcaseSlice | HeroSlice;
+type HomepageDocumentDataSlicesSlice =
+  | CatalogSlice
+  | InformationSlice
+  | ShowcaseSlice
+  | HeroSlice;
 
 /**
  * Content for Homepage documents
@@ -622,6 +626,51 @@ export type AllDocumentTypes =
   | SettingsDocument;
 
 /**
+ * Primary content in *Catalog → Primary*
+ */
+export interface CatalogSliceDefaultPrimary {
+  /**
+   * Heading field in *Catalog → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: catalog.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+}
+
+/**
+ * Default variation for Catalog Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CatalogSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CatalogSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Catalog*
+ */
+type CatalogSliceVariation = CatalogSliceDefault;
+
+/**
+ * Catalog Shared Slice
+ *
+ * - **API ID**: `catalog`
+ * - **Description**: Catalog
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CatalogSlice = prismic.SharedSlice<
+  "catalog",
+  CatalogSliceVariation
+>;
+
+/**
  * Primary content in *Hero → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -677,6 +726,81 @@ type HeroSliceVariation = HeroSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
+
+/**
+ * Primary content in *Information → Primary*
+ */
+export interface InformationSliceDefaultPrimary {
+  /**
+   * Text field in *Information → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: information.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+
+  /**
+   * Button Link field in *Information → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: information.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button Label field in *Information → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: information.primary.button_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_label: prismic.KeyTextField;
+
+  /**
+   * Image field in *Information → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: information.primary.image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for Information Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InformationSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<InformationSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Information*
+ */
+type InformationSliceVariation = InformationSliceDefault;
+
+/**
+ * Information Shared Slice
+ *
+ * - **API ID**: `information`
+ * - **Description**: Information
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type InformationSlice = prismic.SharedSlice<
+  "information",
+  InformationSliceVariation
+>;
 
 /**
  * Primary content in *Showcase → Primary*
@@ -767,11 +891,19 @@ declare module "@prismicio/client" {
       SettingsDocumentDataNavigationItem,
       SettingsDocumentDataPagesnavigationItem,
       AllDocumentTypes,
+      CatalogSlice,
+      CatalogSliceDefaultPrimary,
+      CatalogSliceVariation,
+      CatalogSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceDefaultItem,
       HeroSliceVariation,
       HeroSliceDefault,
+      InformationSlice,
+      InformationSliceDefaultPrimary,
+      InformationSliceVariation,
+      InformationSliceDefault,
       ShowcaseSlice,
       ShowcaseSliceDefaultPrimary,
       ShowcaseSliceDefaultItem,
