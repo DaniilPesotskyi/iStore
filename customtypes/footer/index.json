@@ -1,0 +1,64 @@
+{
+  "id": "footer",
+  "label": "Footer",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "email": {
+        "type": "Text",
+        "config": {
+          "label": "Email",
+          "placeholder": ""
+        }
+      },
+      "time": {
+        "type": "Text",
+        "config": {
+          "label": "Time",
+          "placeholder": ""
+        }
+      },
+      "delivery": {
+        "type": "Text",
+        "config": {
+          "label": "Delivery",
+          "placeholder": ""
+        }
+      },
+      "copy_text": {
+        "type": "Text",
+        "config": {
+          "label": "Copy Text",
+          "placeholder": ""
+        }
+      },
+      "socials": {
+        "type": "Group",
+        "config": {
+          "label": "Socials",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "icon": {
+              "type": "Select",
+              "config": {
+                "label": "Icon",
+                "placeholder": "",
+                "options": ["instagram", "facebook", "youtube", "tiktok"]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

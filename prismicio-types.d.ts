@@ -130,6 +130,107 @@ interface FaqsDocumentData {
 export type FaqsDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<FaqsDocumentData>, "faqs", Lang>;
 
+/**
+ * Item in *Footer → Socials*
+ */
+export interface FooterDocumentDataSocialsItem {
+  /**
+   * Link field in *Footer → Socials*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.socials[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Icon field in *Footer → Socials*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.socials[].icon
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  icon: prismic.SelectField<"instagram" | "facebook" | "youtube" | "tiktok">;
+}
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Email field in *Footer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.email
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  email: prismic.KeyTextField;
+
+  /**
+   * Time field in *Footer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.time
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  time: prismic.KeyTextField;
+
+  /**
+   * Delivery field in *Footer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.delivery
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  delivery: prismic.KeyTextField;
+
+  /**
+   * Copy Text field in *Footer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.copy_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  copy_text: prismic.KeyTextField;
+
+  /**
+   * Socials field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.socials[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  socials: prismic.GroupField<Simplify<FooterDocumentDataSocialsItem>>;
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterDocumentData>,
+    "footer",
+    Lang
+  >;
+
 type HomepageDocumentDataSlicesSlice =
   | CatalogSlice
   | InformationSlice
@@ -620,6 +721,7 @@ export type SettingsDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | ContactsDocument
   | FaqsDocument
+  | FooterDocument
   | HomepageDocument
   | IphoneDocument
   | ServicesDocument
@@ -878,6 +980,9 @@ declare module "@prismicio/client" {
       FaqsDocument,
       FaqsDocumentData,
       FaqsDocumentDataSlicesSlice,
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataSocialsItem,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,

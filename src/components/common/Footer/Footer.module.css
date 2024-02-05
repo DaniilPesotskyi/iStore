@@ -1,0 +1,161 @@
+.footer {
+  padding: 30px 0px;
+
+  background-color: var(--secondary-bg-clr);
+}
+
+.container {
+  max-width: 1580px;
+  padding: 0px 20px;
+  margin: 0 auto;
+}
+
+/* MAIN */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  margin-bottom: 30px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-bottom: 40px;
+
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--main-light-text-clr);
+}
+
+.logoIcon {
+  fill: var(--main-light-text-clr);
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-bottom: 40px;
+}
+
+.contactsItem {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  font-size: 13px;
+  color: var(--main-light-text-clr);
+}
+
+.contactsItem > a {
+  transition: all var(--transition-duration);
+}
+
+.contactsItem > a:hover {
+  color: var(--primary-clr);
+}
+
+.contactsLabel {
+  color: var(--secondary-text-clr);
+}
+
+.delivery {
+  max-width: 240px;
+
+  font-size: 13px;
+  color: var(--main-light-text-clr);
+}
+
+.contactsList {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+.contactsLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: var(--border-radius);
+  background-color: var(--main-bg-clr);
+
+  transition: all var(--transition-duration);
+}
+
+.contactsIcon {
+  fill: var(--main-text-clr);
+}
+
+.contactsLink:hover {
+  background-color: var(--primary-clr);
+}
+
+.payments {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* COPY */
+.copy {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px 0px;
+
+  border-top: 1px solid var(--stroke-clr);
+
+  font-size: 13px;
+  color: var(--main-light-text-clr);
+}
+
+@media screen and (min-width: 480px) {
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    margin-bottom: 40px;
+
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .contactsList {
+    justify-content: start;
+    gap: 30px;
+  }
+
+  .copy {
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 0;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .footer {
+    padding: 40px 0px;
+  }
+
+  .payments {
+    justify-content: start;
+    gap: 100px;
+  }
+
+  .copy {
+    padding: 40px 0px;
+  }
+}

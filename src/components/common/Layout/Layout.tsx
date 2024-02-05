@@ -4,6 +4,7 @@ import { createClient } from "@/prismicio";
 import { PrismicDocument } from "@prismicio/client";
 
 import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 export default async function Layout({
   children,
@@ -19,11 +20,13 @@ export default async function Layout({
   const client = createClient();
 
   const settings = await client.getSingle("settings", { lang });
+  const footer = await client.getSingle("footer", { lang });
 
   return (
     <>
       <Header settings={settings} lang={lang} locales={locales} />
       <main>{children}</main>
+      <Footer settings={settings} lang={lang} footer={footer} />
     </>
   );
 }
