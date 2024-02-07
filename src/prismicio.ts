@@ -19,10 +19,6 @@ const routes: prismic.ClientConfig["routes"] = [
     type: "homepage",
     path: "/:lang",
   },
-  // {
-  //   type: 'page',
-  //   path: '/:lang/:uid',
-  // },
   {
     type: "contacts",
     path: "/:lang/contacts",
@@ -35,6 +31,14 @@ const routes: prismic.ClientConfig["routes"] = [
     type: "services",
     path: "/:lang/service",
   },
+  {
+    type: "catalog",
+    path: "/:lang/catalog/:uid",
+  },
+  // {
+  //   type: "catalog",
+  //   path: "/:lang/catalog/:uid/:product",
+  // },
 ];
 
 /**

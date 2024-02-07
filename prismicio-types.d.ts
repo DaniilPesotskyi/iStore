@@ -4,6 +4,71 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type CatalogDocumentDataSlicesSlice = ProductsSlice;
+
+/**
+ * Content for Catalog documents
+ */
+interface CatalogDocumentData {
+  /**
+   * Slice Zone field in *Catalog*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: catalog.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<CatalogDocumentDataSlicesSlice> /**
+   * Meta Description field in *Catalog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: catalog.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Catalog*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: catalog.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+
+  /**
+   * Meta Title field in *Catalog*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: catalog.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField;
+}
+
+/**
+ * Catalog document from Prismic
+ *
+ * - **API ID**: `catalog`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CatalogDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<CatalogDocumentData>,
+    "catalog",
+    Lang
+  >;
+
 type ContactsDocumentDataSlicesSlice = never;
 
 /**
@@ -719,6 +784,7 @@ export type SettingsDocument<Lang extends string = string> =
   >;
 
 export type AllDocumentTypes =
+  | CatalogDocument
   | ContactsDocument
   | FaqsDocument
   | FooterDocument
@@ -905,6 +971,51 @@ export type InformationSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Products → Primary*
+ */
+export interface ProductsSliceDefaultPrimary {
+  /**
+   * Heading field in *Products → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: products.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField;
+}
+
+/**
+ * Default variation for Products Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProductsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ProductsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Products*
+ */
+type ProductsSliceVariation = ProductsSliceDefault;
+
+/**
+ * Products Shared Slice
+ *
+ * - **API ID**: `products`
+ * - **Description**: Products
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ProductsSlice = prismic.SharedSlice<
+  "products",
+  ProductsSliceVariation
+>;
+
+/**
  * Primary content in *Showcase → Primary*
  */
 export interface ShowcaseSliceDefaultPrimary {
@@ -974,6 +1085,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      CatalogDocument,
+      CatalogDocumentData,
+      CatalogDocumentDataSlicesSlice,
       ContactsDocument,
       ContactsDocumentData,
       ContactsDocumentDataSlicesSlice,
@@ -1009,6 +1123,10 @@ declare module "@prismicio/client" {
       InformationSliceDefaultPrimary,
       InformationSliceVariation,
       InformationSliceDefault,
+      ProductsSlice,
+      ProductsSliceDefaultPrimary,
+      ProductsSliceVariation,
+      ProductsSliceDefault,
       ShowcaseSlice,
       ShowcaseSliceDefaultPrimary,
       ShowcaseSliceDefaultItem,
