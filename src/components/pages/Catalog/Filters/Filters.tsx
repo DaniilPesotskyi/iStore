@@ -7,6 +7,7 @@ import clsx from "clsx";
 
 import getFilters from "@/lib/getFilters";
 import FilterItem from "./FilterItem/FilterItem";
+import SearchBar from "./SearchBar/SearchBar";
 
 interface IProps {
   className?: string;
@@ -41,19 +42,8 @@ const Filter: React.FC<IProps> = ({ className, device }) => {
   const onFiltersRender = () => {
     return (
       <>
-        <div className={css.searchWrap}>
-          <input
-            type="text"
-            className={css.searchInput}
-            name="searcher"
-            placeholder="."
-            id="search"
-          />
-          <label htmlFor="search" className={css.searchLabel}>
-            <SearchIcon className={css.searchIcon} />
-          </label>
-        </div>
         <ul className={css.filtersList}>
+          <SearchBar />
           {Object.entries(filters).map(([key, value], index) => (
             <li key={index}>
               <FilterItem label={key} filters={value as []} />
@@ -64,8 +54,7 @@ const Filter: React.FC<IProps> = ({ className, device }) => {
     );
   };
 
-  getFilters(device);
-
+  
   return (
     <div className={clsx(css.wrap, className)}>
       <button
@@ -113,27 +102,6 @@ function CloseIcon({ className }: { className?: string }) {
         strokeWidth="1.7"
         d="M12 12l16 16m-16 0l16-16"
       ></path>
-    </svg>
-  );
-}
-
-function SearchIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      xmlns="http://www.w3.org/2000/svg"
-      width="25"
-      height="25"
-      fill="none"
-    >
-      <g clipPath="url(#a)">
-        <path d="M10.244 0c5.659 0 10.245 4.525 10.245 10.105a9.986 9.986 0 01-2.472 6.584l6.736 6.841a.858.858 0 01-.02 1.225.888.888 0 01-1.24-.017l-6.73-6.838a10.288 10.288 0 01-6.52 2.311C4.589 20.211 0 15.686 0 10.105 0 4.525 4.588 0 10.244 0zm0 1.732c-4.688 0-8.488 3.75-8.488 8.373 0 4.625 3.8 8.374 8.488 8.374 4.687 0 8.489-3.75 8.489-8.374 0-4.625-3.8-8.373-8.488-8.373"></path>
-      </g>
-      <defs>
-        <clipPath id="a">
-          <path d="M0 0h25v25H0z"></path>
-        </clipPath>
-      </defs>
     </svg>
   );
 }
