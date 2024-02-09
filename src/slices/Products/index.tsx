@@ -1,16 +1,33 @@
 "use client";
 
-import Filter from "@/components/pages/Catalog/Filters";
 import css from "./index.module.css";
 
 import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
+import { createClient } from "@/prismicio";
+import { IphoneDocument } from "../../../prismicio-types";
+
+import { useEffect, useState } from "react";
+
+import DisplayMode from "@/components/pages/Catalog/DisplayMode/DisplayMode";
+import Filter from "@/components/pages/Catalog/Filters/Filters";
+import ProductCard from "@/components/common/ProductCard/ProductCard";
 
 export type ProductsProps = SliceComponentProps<Content.ProductsSlice>;
 
-interface IProps extends ProductsProps {}
+const Products = ({ slice }: ProductsProps): JSX.Element => {
+  const [products, setProducts] = useState<IphoneDocument<string>[]>([]);
 
-const Products = ({ slice }: IProps): JSX.Element => {
+  useEffect(() => {
+    const getProducts = async () => {
+      const client = createClient();
+      const products = await client.getAllByType("iphone");
+      setProducts(products);
+    };
+
+    getProducts();
+  }, []);
+
   return (
     <section
       data-slice-type={slice.slice_type}
@@ -27,9 +44,15 @@ const Products = ({ slice }: IProps): JSX.Element => {
         />
       </div>
       <div className={css.main}>
-        <Filter className={css.filter} />
-        <div className={css.mode}>qqqq</div>
-        <ul className={css.list}>wwww</ul>
+        <Filter className={css.filter} device="iphone" />
+        <DisplayMode className={css.mode} />
+        <ul className={css.list}>
+          {products.map((i, index) => (
+            <li key={index}>
+              <ProductCard item={i} />
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

@@ -100,8 +100,8 @@ function ArrowIcon({ className }: { className?: string }) {
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        strokeWidth="1.7"
-        d="M22 12L3 13m7-8l-7 8 7 7"
+        strokeWidth="1.667"
+        d="M21.875 12.486l-18.53.014m7.06-7.292L3.124 12.5l7.28 7.292"
       ></path>
     </svg>
   );
