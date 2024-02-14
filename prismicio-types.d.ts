@@ -84,7 +84,18 @@ interface ContactsDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<ContactsDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<ContactsDocumentDataSlicesSlice>;
+
+  /**
+   * Heading field in *Contacts*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: contacts.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField /**
    * Meta Description field in *Contacts*
    *
    * - **Field Type**: Text
@@ -134,7 +145,7 @@ export type ContactsDocument<Lang extends string = string> =
     Lang
   >;
 
-type FaqsDocumentDataSlicesSlice = never;
+type FaqsDocumentDataSlicesSlice = FaqsSlice;
 
 /**
  * Content for FAQs documents
@@ -149,7 +160,18 @@ interface FaqsDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<FaqsDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<FaqsDocumentDataSlicesSlice>;
+
+  /**
+   * Heading field in *FAQs*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faqs.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField /**
    * Meta Description field in *FAQs*
    *
    * - **Field Type**: Text
@@ -617,7 +639,18 @@ interface ServicesDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<ServicesDocumentDataSlicesSlice> /**
+  slices: prismic.SliceZone<ServicesDocumentDataSlicesSlice>;
+
+  /**
+   * Heading field in *Services*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: services.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.TitleField /**
    * Meta Description field in *Services*
    *
    * - **Field Type**: Text
@@ -837,6 +870,73 @@ export type CatalogSlice = prismic.SharedSlice<
   "catalog",
   CatalogSliceVariation
 >;
+
+/**
+ * Primary content in *Faqs → Primary*
+ */
+export interface FaqsSliceDefaultPrimary {
+  /**
+   * Title field in *Faqs → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faqs.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField;
+}
+
+/**
+ * Primary content in *Faqs → Items*
+ */
+export interface FaqsSliceDefaultItem {
+  /**
+   * Question field in *Faqs → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faqs.items[].question
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  question: prismic.TitleField;
+
+  /**
+   * Answer field in *Faqs → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faqs.items[].answer
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  answer: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Faqs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FaqsSliceDefaultPrimary>,
+  Simplify<FaqsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *Faqs*
+ */
+type FaqsSliceVariation = FaqsSliceDefault;
+
+/**
+ * Faqs Shared Slice
+ *
+ * - **API ID**: `faqs`
+ * - **Description**: Faqs
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqsSlice = prismic.SharedSlice<"faqs", FaqsSliceVariation>;
 
 /**
  * Primary content in *Hero → Primary*
@@ -1114,6 +1214,11 @@ declare module "@prismicio/client" {
       CatalogSliceDefaultPrimary,
       CatalogSliceVariation,
       CatalogSliceDefault,
+      FaqsSlice,
+      FaqsSliceDefaultPrimary,
+      FaqsSliceDefaultItem,
+      FaqsSliceVariation,
+      FaqsSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceDefaultItem,

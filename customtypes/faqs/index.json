@@ -10,7 +10,20 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "faqs": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      },
+      "heading": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Heading",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "heading1"
         }
       }
     },

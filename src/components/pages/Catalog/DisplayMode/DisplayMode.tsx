@@ -1,30 +1,34 @@
 "use client";
 
-import { useState } from "react";
 import css from "./DisplayMode.module.css";
 
 import clsx from "clsx";
+import { useDispatch, useSelector } from "react-redux";
+
+import { selectDisplayMode } from "@/redux/displayMode/selectors";
+import { setDisplayMode } from "@/redux/displayMode/displayModeSlice";
 
 interface IProps {
   className: string;
 }
 
 const DisplayMode: React.FC<IProps> = ({ className }) => {
-  const [mode, setMode] = useState<"grid" | "row">("grid");
+  const dispatch = useDispatch();
+  const displayMode = useSelector(selectDisplayMode);
 
   return (
     <div className={clsx(css.wrap, className)}>
       <button
         type="button"
-        className={clsx(css.btn, mode === "grid" && css.active)}
-        onClick={() => setMode("grid")}
+        className={clsx(css.btn, displayMode === "grid" && css.active)}
+        onClick={() => dispatch(setDisplayMode("grid"))}
       >
         <GridIcon className={css.icon} />
       </button>
       <button
         type="button"
-        className={clsx(css.btn, mode === "row" && css.active)}
-        onClick={() => setMode("row")}
+        className={clsx(css.btn, displayMode === "row" && css.active)}
+        onClick={() => dispatch(setDisplayMode("row"))}
       >
         <RowIcon className={css.icon} />
       </button>
