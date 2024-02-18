@@ -13,8 +13,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action: PayloadAction<IIPhone>) => {
-      console.log("fsdfsd");
-      if (state.items.some((i) => i.uid !== action.payload.uid)) {
+      if (state.items.every((i) => i.uid !== action.payload.uid)) {
         state.items.push(action.payload);
       } else if (state.items.length === 0) {
         state.items.push(action.payload);

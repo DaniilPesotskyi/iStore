@@ -12,6 +12,15 @@
         "config": {
           "choices": {}
         }
+      },
+      "heading": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Heading",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "heading1"
+        }
       }
     },
     "SEO & Metadata": {

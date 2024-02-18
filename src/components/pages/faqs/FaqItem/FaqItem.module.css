@@ -1,0 +1,25 @@
+.wrap {
+  border: 1px solid var(--stroke-clr);
+
+  cursor: pointer;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 25px 20px;
+}
+
+.question {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--main-text-clr);
+}
+
+.icon {
+}
+
+.answer {
+}
